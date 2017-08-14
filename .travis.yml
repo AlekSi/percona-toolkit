@@ -7,6 +7,9 @@ go:
 
 go_import_path: github.com/percona/percona-toolkit
 
+before_install:
+  - perl -v
+
 script:
   - perl Makefile.PL
   - make
