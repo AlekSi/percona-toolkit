@@ -1,0 +1,14 @@
+dist: trusty
+sudo: required
+language: go
+
+go:
+  - 1.8.x
+
+go_import_path: github.com/percona/percona-toolkit
+
+script:
+  - perl Makefile.PL
+  - make
+  - make test
+  - make install
