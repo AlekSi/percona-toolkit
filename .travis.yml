@@ -7,8 +7,12 @@ go:
 
 go_import_path: github.com/percona/percona-toolkit
 
-before_install:
+install:
+  - pwd
   - perl -v
+
+  - curl https://glide.sh/get | sh
+  - glide install --strip-vendor
 
 script:
   - perl Makefile.PL
@@ -17,6 +21,6 @@ script:
 
   - prove -vwr t/*
 
-  - make -C percona-toolkit/src/go
+  - make -C src/go
 
   - sudo make install
